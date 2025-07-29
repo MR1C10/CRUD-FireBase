@@ -21,22 +21,59 @@ Este projeto é uma aplicação CRUD (Create, Read, Update, Delete) desenvolvida
 ## 📁 Estrutura do Projeto
 
 ```bash
-src
-├── components
-│   ├── UserForm.jsx
-│   └── UserList.jsx
-├── firebase
-│   └── config.js
-├── App.jsx
-├── main.jsx
-└── styles.css
+CRUD-FireBase/
+├── public/
+│   └── vite.svg
+├── src/
+│   ├── assets/
+│   │   └── react.svg
+│   ├── App.css
+│   ├── App.jsx
+│   ├── firebase.js
+│   ├── index.css
+│   └── main.jsx
+├── .env
+├── .gitignore
+├── bun.lock
+├── eslint.config.js
+├── index.html
+├── package.json
+├── README.md
+└── vite.config.js
 ```
 
 ## 🔧 Configuração do Ambiente
 
-1. Clone o repositório
-2. Instale as dependências: `npm install`
-3. Configure o Firebase no arquivo `src/firebase/config.js`
-4. Inicie o servidor de desenvolvimento: `npm run dev`
+1. **Clone o repositório**
+   ```bash
+   git clone https://github.com/MR1C10/CRUD-FireBase.git
+   cd CRUD-FireBase
+   ```
+
+2. **Instale as dependências**
+   ```bash
+   npm install
+   ```
+
+3. **Configure as variáveis de ambiente**
+   - Crie um arquivo `.env` na raiz do projeto
+   - Adicione suas credenciais do Firebase:
+   ```env
+   VITE_FIREBASE_API_KEY=sua_api_key
+   VITE_FIREBASE_AUTH_DOMAIN=seu_auth_domain
+   VITE_FIREBASE_DATABASE_URL=sua_database_url
+   VITE_FIREBASE_PROJECT_ID=seu_project_id
+   VITE_FIREBASE_STORAGE_BUCKET=seu_storage_bucket
+   VITE_FIREBASE_MESSAGING_SENDER_ID=seu_messaging_sender_id
+   VITE_FIREBASE_APP_ID=seu_app_id
+   ```
+
+4. **Inicie o servidor de desenvolvimento**
+   ```bash
+   npm run dev
+   ```
+
+5. **Acesse a aplicação**
+   - Abra seu navegador em `http://localhost:5173`
 
 ---
