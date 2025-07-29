@@ -3,13 +3,13 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set, get, child, remove, update } from "firebase/database";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDaIvkSZXZshiVSVg24t5n04sqqUyuCRdg",
-  authDomain: "crudaula-af99b.firebaseapp.com",
-  databaseURL: "https://crudaula-af99b-default-rtdb.firebaseio.com/",
-  projectId: "crudaula-af99b",
-  storageBucket: "crudaula-af99b.firebasestorage.app",
-  messagingSenderId: "658722810741",
-  appId: "1:658722810741:web:cf4f09a6aca71968a4013c",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
