@@ -1,3 +1,4 @@
+![alt text](src/assets/image.png)
 # CRUD com React e Firebase
 
 Este projeto é uma aplicação CRUD (Create, Read, Update, Delete) desenvolvida com React e Firebase Realtime Database. A aplicação permite gerenciar usuários, oferecendo funcionalidades para adicionar, listar, atualizar e excluir registros em tempo real.
