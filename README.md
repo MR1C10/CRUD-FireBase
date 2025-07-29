@@ -1,12 +1,41 @@
-# React + Vite
+# CRUD com React e Firebase
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é uma aplicação CRUD (Create, Read, Update, Delete) desenvolvida com React e Firebase Realtime Database. A aplicação permite gerenciar usuários, oferecendo funcionalidades para adicionar, listar, atualizar e excluir registros em tempo real.
 
-Currently, two official plugins are available:
+## 🚀 Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ✅ **Criar**: Adicionar novos usuários com nome e e-mail
+- 📖 **Ler**: Listar todos os usuários cadastrados
+- ✏️ **Atualizar**: Modificar informações de usuários existentes
+- 🗑️ **Excluir**: Remover usuários do banco de dados
+- 🔄 **Tempo Real**: Sincronização automática com Firebase
 
-## Expanding the ESLint configuration
+## 🛠️ Tecnologias Utilizadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- [React](https://react.dev/) - Biblioteca para construção da interface
+- [Vite](https://vitejs.dev/) - Build tool e dev server
+- [Firebase](https://firebase.google.com/) - Backend as a Service (Realtime Database)
+- [ESLint](https://eslint.org/) - Linting para qualidade do código
+
+## 📁 Estrutura do Projeto
+
+```bash
+src
+├── components
+│   ├── UserForm.jsx
+│   └── UserList.jsx
+├── firebase
+│   └── config.js
+├── App.jsx
+├── main.jsx
+└── styles.css
+```
+
+## 🔧 Configuração do Ambiente
+
+1. Clone o repositório
+2. Instale as dependências: `npm install`
+3. Configure o Firebase no arquivo `src/firebase/config.js`
+4. Inicie o servidor de desenvolvimento: `npm run dev`
+
+---
