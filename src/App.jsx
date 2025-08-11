@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { db, ref, set, get, child, update, remove } from "./firebase";
+import { db, ref, set, get, child, update, remove, auth, signOut, onAuthStateChanged } from "./firebase";
+import Auth from "./Auth";
 import "./App.css";
 
 function App() {
@@ -7,6 +8,33 @@ function App() {
   const [email, setEmail] = useState("");
   const [usuarios, setUsuarios] = useState([]);
   const [editandoId, setEditandoId] = useState(null);
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  // Verificar estado de autenticação
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  // Função para fazer logout
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      setUsuarios([]);
+      setNome("");
+      setEmail("");
+      setEditandoId(null);
+      alert("Logout realizado com sucesso!");
+    } catch (error) {
+      console.error("Erro ao fazer logout:", error);
+      alert("Erro ao fazer logout!");
+    }
+  };
 
   // Função para adicionar um usuário
   const adicionarUsuario = () => {
@@ -109,15 +137,55 @@ function App() {
     }
   };
 
-  // Carregar usuários ao montar o componente
+  // Carregar usuários ao montar o componente (apenas se autenticado)
   useEffect(() => {
-    carregarUsuarios();
-  }, []);
+    if (user) {
+      carregarUsuarios();
+    }
+  }, [user]);
+
+  // Mostrar tela de loading
+  if (loading) {
+    return (
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        height: '100vh',
+        fontSize: '18px'
+      }}>
+        Carregando...
+      </div>
+    );
+  }
+
+  // Se não estiver autenticado, mostrar tela de login
+  if (!user) {
+    return <Auth />;
+  }
 
   return (
     <div className="App">
       <div className="header">
         <h1>CRUD com React + Firebase</h1>
+        <div className="user-info">
+          <span>Logado como: {user.email}</span>
+          <button 
+            onClick={handleLogout}
+            className="btn-logout"
+            style={{
+              marginLeft: '15px',
+              padding: '8px 16px',
+              background: '#dc3545',
+              color: 'white',
+              border: 'none',
+              borderRadius: '4px',
+              cursor: 'pointer'
+            }}
+          >
+            Sair
+          </button>
+        </div>
       </div>
 
       <div className="form-container">
